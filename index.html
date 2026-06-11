@@ -19,7 +19,7 @@ body.light-mode {
   --border: #c8c2a8; --border2: #b8b098;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-serif; overflow: hidden; height: 100dvh; display: flex; flex-direction: column; }
+body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-serif; overflow: hidden; height: 100vh; height: 100dvh; display: flex; flex-direction: column; }
 
 .header {
   background: var(--bg2); border-bottom: 2px solid var(--green3);
@@ -102,9 +102,9 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 .context-option.maybe { color: var(--orange); }
 .context-option.remove { color: var(--cream2); border-top: 1px solid var(--border); }
 
-.drawer-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.7); display: none; }
+.drawer-overlay { position: fixed; inset: 0; z-index: 400; background: rgba(0,0,0,0.7); display: none; }
 .drawer-overlay.show { display: block; }
-.drawer { position: fixed; top: 0; right: -320px; bottom: 0; width: 300px; background: var(--bg2); border-left: 2px solid var(--green3); z-index: 201; transition: right 0.3s ease; display: flex; flex-direction: column; overflow: hidden; }
+.drawer { position: fixed; top: 0; right: -320px; bottom: 0; width: 300px; background: var(--bg2); border-left: 2px solid var(--green3); z-index: 401; transition: right 0.3s ease; display: flex; flex-direction: column; overflow: hidden; }
 .drawer.open { right: 0; }
 .drawer-header { padding: 14px 16px; border-bottom: 1px solid var(--border2); font-family: 'Creepster', cursive; font-size: 20px; color: var(--green); letter-spacing: 1px; display: flex; justify-content: space-between; align-items: center; }
 .drawer-close { background: none; border: none; color: var(--cream2); font-size: 20px; cursor: pointer; }
@@ -122,6 +122,20 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 .collective-concert { font-size: 11px; color: var(--cream2); padding: 2px 0; font-family: 'Special Elite', serif; display: flex; align-items: baseline; gap: 0; }
 .cc-icon { width: 18px; flex-shrink: 0; text-align: center; font-style: normal; }
 .cc-text { flex: 1; min-width: 0; padding-left: 4px; }
+
+/* MON STYLE */
+.my-style-bar {
+  display:flex; align-items:center; gap:6px;
+  padding:6px 10px; margin-bottom:8px;
+  background:var(--bg3); border-radius:6px;
+  border:1px solid var(--border2);
+  font-family:'Special Elite',serif;
+  font-size:11px; color:var(--green);
+  min-height:28px;
+}
+.my-style-label { color:var(--cream2); font-size:9px; letter-spacing:1px; font-family:'Oswald',sans-serif; white-space:nowrap; }
+.my-style-genres { color:var(--green); font-size:11px; flex:1; }
+
 .no-selections { font-size: 11px; color: var(--cream2); font-family: 'Special Elite', serif; font-style: italic; }
 
 .user-modal { position: fixed; inset: 0; z-index: 500; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; }
@@ -160,7 +174,7 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 .dtab { flex:1;padding:8px 4px;text-align:center;font-size:11px;letter-spacing:0.5px;cursor:pointer;color:var(--cream2);background:var(--bg3);border:none;font-family:'Oswald',sans-serif;transition:all 0.15s;min-width:0; }
 .dtab.active { background:var(--green3);color:var(--green); }
 
-/* MON PLANNING */
+/* PROG PERSO */
 .planning-section { margin-bottom:14px; }
 .planning-day-label { font-family:'Creepster',cursive;font-size:13px;color:var(--orange);letter-spacing:1px;padding:4px 0 6px;border-bottom:1px solid var(--border2);margin-bottom:6px;display:flex;align-items:center;gap:6px; }
 .planning-day-count { font-size:9px;color:var(--cream2);font-family:'Oswald',sans-serif; }
@@ -177,6 +191,20 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 
 .planning-friends { display:flex;gap:2px;margin-top:3px;flex-wrap:wrap; }
 .pf-av { width:13px;height:13px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px; }
+
+/* MON STYLE */
+.my-style-bar {
+  display:flex; align-items:center; gap:6px;
+  padding:6px 10px; margin-bottom:8px;
+  background:var(--bg3); border-radius:6px;
+  border:1px solid var(--border2);
+  font-family:'Special Elite',serif;
+  font-size:11px; color:var(--green);
+  min-height:28px;
+}
+.my-style-label { color:var(--cream2); font-size:9px; letter-spacing:1px; font-family:'Oswald',sans-serif; white-space:nowrap; }
+.my-style-genres { color:var(--green); font-size:11px; flex:1; }
+
 .no-selections { font-size:11px;color:var(--cream2);font-family:'Special Elite',serif;font-style:italic; }
 
 /* EXPORT PLAYLIST */
@@ -191,6 +219,127 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 .export-name { flex:1;font-size:10px;font-weight:700;color:var(--cream);text-transform:uppercase;letter-spacing:0.5px; }
 .export-link { font-size:11px;padding:3px 8px;background:var(--green3);border:1px solid var(--green2);color:var(--green);border-radius:4px;text-decoration:none;font-family:'Oswald',sans-serif;letter-spacing:1px;cursor:pointer; }
 .copy-all-btn { width:100%;padding:8px;background:var(--bg3);border:1px solid var(--green2);color:var(--green);font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:1px;border-radius:6px;cursor:pointer; }
+
+
+/* PROG TEAM */
+.team-view { display:flex; flex-direction:column; height:100%; overflow-y:auto; scrollbar-width:none; }
+.team-view::-webkit-scrollbar { display:none; }
+.team-day-header { padding:10px 14px 6px; border-bottom:1px solid var(--border2); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+.team-day-title { font-family:'Creepster',cursive; font-size:16px; color:var(--orange); letter-spacing:1px; }
+.team-day-count { font-size:10px; color:var(--cream2); font-family:'Special Elite',serif; }
+
+.team-card { margin:5px 10px; background:var(--bg3); border-radius:6px; padding:7px 9px; position:relative; border-left:3px solid var(--border2); }
+.team-card.priority { border-left-color:var(--green); }
+.team-card.solo { border-left-color:var(--border2); opacity:0.75; }
+.team-card.conflict-wrap { border:1px dashed var(--orange); border-radius:6px; margin:5px 10px; padding:7px 9px; background:var(--bg3); }
+.conflict-header { font-size:8px; color:var(--orange); font-family:'Oswald',sans-serif; letter-spacing:1px; margin-bottom:6px; display:flex; align-items:center; gap:4px; }
+.conflict-divider { height:1px; background:#3a2a0a; margin:6px 0; }
+.conflict-alt { opacity:0.7; }
+.tc-top { display:flex; align-items:baseline; gap:6px; margin-bottom:3px; }
+.tc-time { font-size:9px; color:var(--cream2); font-family:'Special Elite',serif; white-space:nowrap; }
+.tc-name { font-size:11px; font-weight:700; color:var(--cream); text-transform:uppercase; letter-spacing:0.3px; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tc-scene { font-size:8px; font-weight:600; letter-spacing:1px; margin-bottom:2px; }
+.tc-genre { font-size:8px; color:var(--cream2); font-family:'Special Elite',serif; margin-bottom:4px; }
+.tc-avatars { display:flex; gap:3px; flex-wrap:wrap; }
+.tc-av { width:16px; height:16px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; position:relative; flex-shrink:0; }
+.tc-av-b { position:absolute; top:-3px; right:-3px; width:9px; height:9px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:6px; border:1px solid var(--bg3); }
+
+.empty-slot { margin:3px 10px; padding:4px 10px; background:var(--bg2); border-radius:4px; border:1px dashed var(--border2); display:flex; align-items:center; gap:6px; }
+.empty-time { font-size:8px; color:#5a5a42; font-family:'Special Elite',serif; }
+.empty-label { font-size:8px; color:#5a5a42; letter-spacing:1px; font-style:italic; }
+
+/* STATS */
+.stats-section { margin:8px 10px 14px; background:var(--bg2); border-radius:8px; padding:10px; border:1px solid var(--border2); }
+.stats-title { font-size:9px; color:var(--cream2); letter-spacing:2px; text-transform:uppercase; font-family:'Oswald',sans-serif; margin-bottom:8px; border-bottom:1px solid var(--border2); padding-bottom:4px; }
+.stat-row { display:flex; align-items:center; gap:6px; margin-bottom:5px; }
+.stat-label { font-size:9px; color:var(--cream2); font-family:'Special Elite',serif; width:52px; flex-shrink:0; }
+.stat-bar-wrap { flex:1; height:5px; background:var(--border2); border-radius:3px; overflow:hidden; }
+.stat-bar { height:100%; border-radius:3px; transition:width 0.4s ease; }
+.stat-val { font-size:9px; color:var(--cream); font-family:'Oswald',sans-serif; width:30px; text-align:right; flex-shrink:0; }
+.stat-highlight { display:flex; align-items:center; gap:6px; padding:5px 0; border-top:1px solid var(--border2); margin-top:4px; }
+.stat-hl-icon { font-size:13px; width:18px; text-align:center; flex-shrink:0; }
+.stat-hl-text { font-size:9px; color:var(--cream2); font-family:'Special Elite',serif; flex:1; }
+.stat-hl-val { font-size:9px; color:var(--green); font-family:'Oswald',sans-serif; letter-spacing:0.5px; }
+.no-team-data { padding:20px; text-align:center; font-family:'Special Elite',serif; font-size:12px; color:var(--cream2); font-style:italic; }
+
+
+
+
+
+
+
+/* PERFECT RUNNING ORDER */
+#teamView {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 300;
+  flex-direction: column;
+  overflow: hidden;
+}
+#teamView.active { display: flex; }
+
+.team-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.team-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 14px 20px;
+}
+
+.team-view-title {
+  font-family: 'Creepster', cursive;
+  font-size: 18px; color: var(--green);
+  letter-spacing: 2px;
+  padding: 12px 0 6px;
+  border-bottom: 1px solid var(--border2);
+  margin-bottom: 10px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.team-day-sub { font-family: 'Special Elite', serif; font-size: 11px; color: var(--cream2); letter-spacing: 1px; }
+
+.team-card { background: var(--bg3); border-radius:7px; padding:10px 12px; margin-bottom:8px; border-left:3px solid var(--green); display:flex; flex-direction:column; gap:3px; }
+.team-card.solo { border-left-color: var(--border2); opacity:0.8; }
+.team-card.conflict-wrap { border:1px dashed var(--orange); border-radius:7px; padding:10px 12px; margin-bottom:8px; background:var(--bg3); }
+.tc-top { display:flex; align-items:baseline; gap:8px; }
+.tc-time { font-size:10px; color:var(--cream2); font-family:'Special Elite',serif; white-space:nowrap; flex-shrink:0; }
+.tc-name { font-size:12px; font-weight:700; color:var(--cream); text-transform:uppercase; letter-spacing:0.5px; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tc-scene { font-size:9px; font-weight:600; letter-spacing:1px; }
+.tc-genre { font-size:9px; color:var(--cream2); font-family:'Special Elite',serif; }
+.tc-avatars { display:flex; gap:3px; flex-wrap:wrap; margin-top:3px; }
+.tc-av { width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:10px; position:relative; flex-shrink:0; }
+.tc-av-b { position:absolute; top:-3px; right:-3px; width:9px; height:9px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:6px; border:1px solid var(--bg3); }
+.tc-conflict-label { font-size:9px; color:var(--orange); letter-spacing:1px; margin-bottom:5px; }
+.tc-conflict-sep { height:1px; background:#3a2a0a; margin:5px 0; }
+
+.team-empty { margin-bottom:5px; padding:5px 10px; background:var(--bg2); border-radius:4px; border:1px dashed var(--border); display:flex; align-items:center; gap:8px; }
+.team-empty-time { font-size:9px; color:#5a5a42; font-family:'Special Elite',serif; }
+.team-empty-label { font-size:9px; color:#5a5a42; font-style:italic; }
+
+/* STATS PASTILLES */
+.stats-section { background:var(--bg2); border-radius:8px; padding:12px 14px; border:1px solid var(--border2); margin-top:14px; }
+.stats-title { font-size:10px; color:var(--cream2); letter-spacing:2px; text-transform:uppercase; font-family:'Oswald',sans-serif; margin-bottom:10px; }
+.stage-pills { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px; }
+.stage-pill { display:flex; align-items:center; gap:6px; background:var(--bg3); border-radius:20px; padding:5px 10px; }
+.pill-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.pill-name { font-size:10px; color:var(--cream2); font-family:'Oswald',sans-serif; letter-spacing:0.5px; }
+.pill-pct { font-size:11px; font-weight:700; color:var(--cream); font-family:'Oswald',sans-serif; }
+.stat-highlight { display:flex; align-items:center; gap:8px; padding:4px 0; border-top:1px solid var(--border2); margin-top:2px; }
+.stat-highlight:first-of-type { margin-top:8px; padding-top:8px; }
+.stat-hl-icon { font-size:13px; width:18px; text-align:center; flex-shrink:0; }
+.stat-hl-text { font-size:10px; color:var(--cream2); font-family:'Special Elite',serif; flex:1; }
+.stat-hl-val { font-size:10px; color:var(--green); font-family:'Oswald',sans-serif; }
+.no-team-data { padding:30px 20px; text-align:center; font-family:'Special Elite',serif; font-size:13px; color:var(--cream2); font-style:italic; }
+
+@media (max-width: 480px) {
+  .team-inner { padding: 0 8px 16px; }
+  .stage-pills { gap:6px; }
+  .stage-pill { padding: 4px 8px; }
+}
 
 .toast { position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%); background: var(--bg2); border: 1px solid var(--green3); border-radius: 20px; padding: 7px 16px; font-size: 12px; letter-spacing: 1px; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s; white-space: nowrap; }
 .toast.show { opacity: 1; }
@@ -232,6 +381,7 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 <div class="grid-wrapper" id="gridWrapper">
   <div class="grid-container" id="gridContainer"></div>
 </div>
+<div id="teamView"></div>
 
 <nav class="bottom-nav">
   <button class="nav-btn active" onclick="setDay(0)" id="btn0"><span class="nav-icon">🔥</span>JEU 18</button>
@@ -273,11 +423,18 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
       <button onclick="launchSearch()" style="background:var(--green3);border:1px solid var(--green2);color:var(--green);border-radius:6px;padding:8px 12px;font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;cursor:pointer;flex-shrink:0;white-space:nowrap;">GO</button>
     </div>
     <div class="drawer-tabs">
-      <button class="dtab active" id="tab-planning" onclick="switchTab('planning')">MON PLANNING</button>
-      <button class="dtab" id="tab-collective" onclick="switchTab('collective')">VUE COLLECTIVE</button>
+      <button class="dtab active" id="tab-planning" onclick="switchTab('planning')">PROG PERSO</button>
+      <button class="dtab" id="tab-collective" onclick="switchTab('collective')">PROG TEAM</button>
+    </div>
+    <div class="my-style-bar" id="myStyleBar" style="display:none;">
+      <span class="my-style-label">MON STYLE 🎸</span>
+      <span class="my-style-genres" id="myStyleGenres">—</span>
     </div>
     <div id="panel-planning"></div>
-    <div id="panel-collective" style="display:none;"><div id="collectiveView"></div></div>
+    <div id="panel-collective" style="display:none;">
+      <button onclick="openTeamView()" style="width:100%;padding:10px;background:var(--green3);border:1px solid var(--green2);color:var(--green);font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:1px;border-radius:6px;cursor:pointer;margin-bottom:12px;">🤘 PERFECT RUNNING ORDER</button>
+      <div id="collectiveView"></div>
+    </div>
   </div>
 </div>
 
@@ -307,7 +464,7 @@ const STAGE_CLASSES = ["ms1","ms2","wz","valley","altar","temple"];
 const SCHEDULE = {
 "Jeudi 18":{"MAINSTAGE 1":[{"name":"WE CAME AS ROMANS","genre":"Metalcore","country":"🇺🇸","start":"16:00","end":"16:40"},{"name":"THE PLOT IN YOU","genre":"Metalcore","country":"🇺🇸","start":"17:30","end":"18:10"},{"name":"BREAKING BENJAMIN","genre":"Metal Alternatif","country":"🇺🇸","start":"19:05","end":"19:55"},{"name":"PAPA ROACH","genre":"Metal Alternatif","country":"🇺🇸","start":"21:20","end":"22:25"},{"name":"BRING ME THE HORIZON","genre":"Metalcore","country":"🇬🇧","start":"23:35","end":"00:50"}],"MAINSTAGE 2":[{"name":"MIKKEY DEE WITH FRIENDS","genre":"Hard Rock","country":"🇸🇪","start":"16:45","end":"17:25"},{"name":"THE PRETTY RECKLESS","genre":"Rock Alternatif","country":"🇺🇸","start":"18:15","end":"19:00"},{"name":"DEEP PURPLE","genre":"Hard Rock","country":"🇬🇧","start":"20:00","end":"21:15"},{"name":"ALICE COOPER","genre":"Shock Rock","country":"🇺🇸","start":"22:30","end":"23:30"},{"name":"ALESTORM","genre":"Pirate Metal","country":"🇬🇧","start":"01:10","end":"02:00"}],"WARZONE":[{"name":"SATANIC SURFERS","genre":"Punk Rock","country":"🇸🇪","start":"16:45","end":"17:25"},{"name":"SHELTER","genre":"Krishnacore","country":"🇺🇸","start":"18:15","end":"19:00"},{"name":"LAGWAGON","genre":"Punk Rock","country":"🇺🇸","start":"20:00","end":"21:00"},{"name":"ALL TIME LOW","genre":"Pop Punk","country":"🇺🇸","start":"22:10","end":"23:10"},{"name":"SOCIAL DISTORTION","genre":"Punk Rock","country":"🇺🇸","start":"00:30","end":"01:30"}],"VALLEY":[{"name":"TRUCKFIGHTERS","genre":"Stoner","country":"🇸🇪","start":"16:00","end":"16:40"},{"name":"ELDER","genre":"Stoner Psychedelic","country":"🇺🇸","start":"17:30","end":"18:10"},{"name":"THE INSPECTOR CLUZO","genre":"Rock","country":"🇫🇷","start":"19:05","end":"19:55"},{"name":"UNCLE ACID & THE DEADBEATS","genre":"Doom Psychedelic","country":"🇬🇧","start":"21:05","end":"22:05"},{"name":"KADAVAR","genre":"Hard Rock Psychedelic","country":"🇩🇪","start":"23:15","end":"00:25"}],"ALTAR":[{"name":"SKAPHOS","genre":"Black Death","country":"🇬🇷","start":"16:00","end":"16:40"},{"name":"DEVANGELIC","genre":"Brutal Death Metal","country":"🇮🇹","start":"17:30","end":"18:10"},{"name":"RIVERS OF NIHIL","genre":"Death Metal Progressif","country":"🇺🇸","start":"19:05","end":"19:55"},{"name":"THE HALO EFFECT","genre":"Metal Mélodique","country":"🇸🇪","start":"21:05","end":"22:05"},{"name":"IGORRR","genre":"Breakcore Baroque","country":"🇫🇷","start":"23:15","end":"00:25"}],"TEMPLE":[{"name":"PERCHTA","genre":"Folk Black Metal","country":"🇦🇹","start":"16:45","end":"17:25"},{"name":"WINTERFYLLETH","genre":"Black Metal","country":"🇬🇧","start":"18:15","end":"19:00"},{"name":"BORKNAGAR","genre":"Viking Black Metal","country":"🇳🇴","start":"20:00","end":"21:00"},{"name":"SKALD","genre":"Néo Folk","country":"🇫🇷","start":"22:10","end":"23:10"},{"name":"FEUERSCHWANZ","genre":"Folk Metal","country":"🇩🇪","start":"00:30","end":"01:30"}]},
 "Vendredi 19":{"MAINSTAGE 1":[{"name":"BLACKRAIN","genre":"Glam Metal","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"WINGS OF STEEL","genre":"Heavy Metal","country":"🇫🇷","start":"12:15","end":"12:45"},{"name":"SORTILÈGE","genre":"Heavy Metal","country":"🇫🇷","start":"13:35","end":"14:15"},{"name":"QUEENSRŸCHE","genre":"Metal Progressif","country":"🇺🇸","start":"15:05","end":"15:50"},{"name":"ACCEPT","genre":"Heavy Metal","country":"🇩🇪","start":"16:45","end":"17:35"},{"name":"HELLOWEEN","genre":"Power Metal","country":"🇩🇪","start":"18:35","end":"19:55"},{"name":"IRON MAIDEN","genre":"Heavy Metal","country":"🇬🇧","start":"21:00","end":"23:10"},{"name":"ULTRA VOMIT","genre":"Metal Parodique","country":"🇫🇷","start":"00:50","end":"02:00"}],"MAINSTAGE 2":[{"name":"URAVENA","genre":"Thrash Groove","country":"🇧🇪","start":"10:30","end":"11:00"},{"name":"RETURN TO DUST","genre":"Grunge","country":"🇬🇧","start":"11:40","end":"12:10"},{"name":"BROTHERS OF METAL","genre":"Power Metal","country":"🇸🇪","start":"12:50","end":"13:30"},{"name":"TESSERACT","genre":"Djent / Metal Progressif","country":"🇬🇧","start":"14:20","end":"15:00"},{"name":"BLOODYWOOD","genre":"Nu Folk Metal","country":"🇮🇳","start":"15:55","end":"16:40"},{"name":"SEPULTURA","genre":"Thrash Metal","country":"🇧🇷","start":"17:40","end":"18:30"},{"name":"OPETH","genre":"Death Metal Progressif","country":"🇸🇪","start":"20:00","end":"20:55"},{"name":"SABATON","genre":"Power Metal","country":"🇸🇪","start":"23:15","end":"00:45"}],"WARZONE":[{"name":"WAKE THE DEAD","genre":"Hardcore","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"GRIDIRON","genre":"Hardcore Rap","country":"🇺🇸","start":"12:15","end":"12:45"},{"name":"DIE SPITZ","genre":"Punk Rock","country":"🇩🇪","start":"13:35","end":"14:15"},{"name":"POINT MORT","genre":"Chaotic Popcore","country":"🇫🇷","start":"15:05","end":"15:50"},{"name":"DYING WISH","genre":"Metalcore","country":"🇺🇸","start":"16:45","end":"17:35"},{"name":"CEREMONY","genre":"Powerviolence / Post Punk","country":"🇺🇸","start":"18:35","end":"19:25"},{"name":"MALEVOLENCE","genre":"Hardcore Metal","country":"🇬🇧","start":"20:35","end":"21:35"},{"name":"LA DISPUTE","genre":"Post Hardcore","country":"🇺🇸","start":"22:45","end":"23:45"},{"name":"THE DILLINGER ESCAPE PLAN","genre":"Mathcore","country":"🇺🇸","start":"00:55","end":"02:00"}],"VALLEY":[{"name":"DRAGUNOV","genre":"Post Metal","country":"🇫🇷","start":"10:30","end":"11:00"},{"name":"YAROSTAN","genre":"Post Metal","country":"🇫🇷","start":"11:40","end":"12:10"},{"name":"REZN","genre":"Doom Psychedelic","country":"🇺🇸","start":"12:50","end":"13:30"},{"name":"CONJURER","genre":"Post Metal / Doom","country":"🇬🇧","start":"14:20","end":"15:00"},{"name":"STONED JESUS","genre":"Stoner Doom","country":"🇺🇦","start":"15:55","end":"16:40"},{"name":"TORCHE","genre":"Stoner","country":"🇺🇸","start":"17:40","end":"18:30"},{"name":"LOATHE","genre":"Metalcore Progressif","country":"🇬🇧","start":"19:30","end":"20:30"},{"name":"SLIFT","genre":"Stoner Psychédélique","country":"🇫🇷","start":"21:40","end":"22:40"},{"name":"MASTODON","genre":"Sludge Progressif","country":"🇺🇸","start":"23:50","end":"00:50"}],"ALTAR":[{"name":"IMPUREZA","genre":"Flamenco Death","country":"🇪🇸","start":"10:30","end":"11:00"},{"name":"ESODIC","genre":"Thrash Death","country":"🇮🇹","start":"11:40","end":"12:10"},{"name":"CRYPTA","genre":"Death Metal","country":"🇧🇷","start":"12:50","end":"13:30"},{"name":"BLOOD RED THRONE","genre":"Death Metal","country":"🇳🇴","start":"14:20","end":"15:00"},{"name":"SINSAENUM","genre":"Blackened / Groove Metal","country":"🇫🇷","start":"15:55","end":"16:40"},{"name":"SYLOSIS","genre":"Thrash Death","country":"🇬🇧","start":"17:40","end":"18:30"},{"name":"DECAPITATED","genre":"Death Metal","country":"🇵🇱","start":"19:30","end":"20:30"},{"name":"PERIPHERY","genre":"Metal Progressif","country":"🇺🇸","start":"21:40","end":"22:40"},{"name":"BLOOD INCANTATION","genre":"Death Metal Progressif","country":"🇺🇸","start":"23:50","end":"00:50"}],"TEMPLE":[{"name":"MOURIR","genre":"Black Metal","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"KILLUS","genre":"Metal Indus","country":"🇪🇸","start":"12:15","end":"12:45"},{"name":"PONTE DEL DIAVOLO","genre":"Doom / Black Metal","country":"🇮🇹","start":"13:35","end":"14:15"},{"name":"EINHERJER","genre":"Folk Metal","country":"🇳🇴","start":"15:05","end":"15:50"},{"name":"MØL","genre":"Blackgaze","country":"🇩🇰","start":"16:45","end":"17:35"},{"name":"CARACH ANGREN","genre":"Black Metal Symphonique","country":"🇳🇱","start":"18:35","end":"19:25"},{"name":"ROTTING CHRIST","genre":"Black Metal Mélodique","country":"🇬🇷","start":"20:35","end":"21:35"},{"name":"MY DYING BRIDE","genre":"Doom Death","country":"🇬🇧","start":"22:45","end":"23:45"},{"name":"THE GATHERING","genre":"Doom Gothique","country":"🇳🇱","start":"00:55","end":"02:00"}]},
-"Samedi 20":{"MAINSTAGE 1":[{"name":"SLAY SQUAD","genre":"Nu Metal","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"THORNHILL","genre":"Nu Metal","country":"🇦🇺","start":"12:25","end":"13:05"},{"name":"HOUSE OF PROTECTION","genre":"Electro Rock","country":"🇸🇪","start":"13:55","end":"14:35"},{"name":"SIDILARSEN","genre":"Nu Metal Indus","country":"🇫🇷","start":"15:25","end":"16:05"},{"name":"ENHANCER","genre":"Nu Metal","country":"🇫🇷","start":"16:55","end":"17:40"},{"name":"TOM MORELLO","genre":"Metal Alternatif","country":"🇺🇸","start":"18:35","end":"19:25"},{"name":"A PERFECT CIRCLE","genre":"Metal Alternatif","country":"🇺🇸","start":"20:35","end":"21:45"},{"name":"LIMP BIZKIT","genre":"Nu Metal","country":"🇺🇸","start":"23:10","end":"00:40"}],"MAINSTAGE 2":[{"name":"LOCOMUERTE","genre":"Crossover","country":"🇪🇸","start":"10:30","end":"11:00"},{"name":"INSANITY ALERT","genre":"Crossover Thrash","country":"🇦🇹","start":"11:40","end":"12:20"},{"name":"ESCUELA GRIND","genre":"Grindcore / Powerviolence","country":"🇺🇸","start":"13:10","end":"13:50"},{"name":"GATECREEPER","genre":"Death Metal","country":"🇺🇸","start":"14:40","end":"15:20"},{"name":"CRISIX","genre":"Metal / Crossover","country":"🇪🇸","start":"16:10","end":"16:50"},{"name":"CAVALERA \"CHAOS A.D.\"","genre":"Thrash Metal","country":"🇧🇷","start":"17:45","end":"18:30"},{"name":"ANTHRAX","genre":"Thrash Metal","country":"🇺🇸","start":"19:30","end":"20:30"},{"name":"MEGADETH","genre":"Thrash Metal","country":"🇺🇸","start":"21:50","end":"23:05"},{"name":"BEHEMOTH","genre":"Blackened Death Metal","country":"🇵🇱","start":"00:35","end":"01:50"}],"WARZONE":[{"name":"FALSE REALITY","genre":"Hardcore","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"COMBUST","genre":"Hardcore","country":"🇺🇸","start":"12:25","end":"13:05"},{"name":"KING 810","genre":"Nu Metal","country":"🇺🇸","start":"13:55","end":"14:35"},{"name":"CANCER BATS","genre":"Punk Hardcore","country":"🇨🇦","start":"15:25","end":"16:05"},{"name":"TRASH TALK","genre":"Punk Hardcore / Powerviolence","country":"🇺🇸","start":"16:55","end":"17:40"},{"name":"CRO-MAGS","genre":"Hardcore","country":"🇺🇸","start":"18:35","end":"19:25"},{"name":"KUBLAI KHAN TX","genre":"Hardcore","country":"🇺🇸","start":"20:35","end":"21:35"},{"name":"LIONHEART","genre":"Hardcore","country":"🇺🇸","start":"22:45","end":"23:45"},{"name":"HATEBREED","genre":"Hardcore","country":"🇺🇸","start":"00:55","end":"02:00"}],"VALLEY":[{"name":"COLD.CAPSULE","genre":"Post Hardcore","country":"🇫🇷","start":"10:30","end":"11:00"},{"name":"BRUIT ≤","genre":"Post Rock","country":"🇫🇷","start":"11:40","end":"12:20"},{"name":"FANGE","genre":"Sludge / Indus","country":"🇫🇷","start":"13:10","end":"13:50"},{"name":"PSYCHONAUT","genre":"Post Metal","country":"🇧🇪","start":"14:40","end":"15:20"},{"name":"PIGS PIGS PIGS PIGS PIGS PIGS PIGS","genre":"Stoner","country":"🇬🇧","start":"16:10","end":"16:50"},{"name":"GOD IS AN ASTRONAUT","genre":"Post Rock","country":"🇮🇪","start":"17:45","end":"18:30"},{"name":"THE YOUNG GODS","genre":"Electro Rock","country":"🇨🇭","start":"19:30","end":"20:30"},{"name":"AMENRA","genre":"Post Metal","country":"🇧🇪","start":"21:40","end":"22:40"},{"name":"CULT OF LUNA","genre":"Post Metal","country":"🇸🇪","start":"23:50","end":"00:50"}],"ALTAR":[{"name":"DVRK","genre":"Deathcore / Nu","country":"🇫🇷","start":"10:30","end":"11:00"},{"name":"PROFANATION","genre":"Death Metal","country":"🇪🇸","start":"11:40","end":"12:20"},{"name":"CABAL","genre":"Deathcore","country":"🇩🇰","start":"13:10","end":"13:50"},{"name":"DEFEATED SANITY","genre":"Death Metal","country":"🇩🇪","start":"14:40","end":"15:20"},{"name":"SEVERE TORTURE","genre":"Brutal Death","country":"🇳🇱","start":"16:10","end":"16:50"},{"name":"OBSCURA","genre":"Black Metal Technique","country":"🇩🇪","start":"17:45","end":"18:30"},{"name":"SEPTICFLESH","genre":"Death Metal Symphonique","country":"🇬🇷","start":"19:30","end":"20:30"},{"name":"CARCASS","genre":"Death Metal","country":"🇬🇧","start":"21:40","end":"22:40"},{"name":"DEICIDE","genre":"Death Metal","country":"🇺🇸","start":"23:50","end":"00:50"}],"TEMPLE":[{"name":"VÍGLJÓS","genre":"Black Metal","country":"🇮🇸","start":"11:05","end":"11:35"},{"name":"HULDER","genre":"Black Metal","country":"🇺🇸","start":"12:25","end":"13:05"},{"name":"NON EST DEUS","genre":"Black Metal","country":"🇫🇷","start":"13:55","end":"14:35"},{"name":"1914","genre":"Blackened Death","country":"🇺🇦","start":"15:25","end":"16:05"},{"name":"GAEREA","genre":"Post Black Metal","country":"🇵🇹","start":"16:55","end":"17:40"},{"name":"ORANSSI PAZUZU","genre":"Black Metal Psyché","country":"🇫🇮","start":"18:35","end":"19:25"},{"name":"AURA NOIR","genre":"Black Thrash","country":"🇳🇴","start":"20:35","end":"21:35"},{"name":"OLD MAN'S CHILD","genre":"Black Metal","country":"🇳🇴","start":"22:45","end":"23:45"}]},
+"Samedi 20":{"MAINSTAGE 1":[{"name":"SLAY SQUAD","genre":"Nu Metal","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"THORNHILL","genre":"Nu Metal","country":"🇦🇺","start":"12:25","end":"13:05"},{"name":"HOUSE OF PROTECTION","genre":"Electro Rock","country":"🇸🇪","start":"13:55","end":"14:35"},{"name":"SIDILARSEN","genre":"Nu Metal Indus","country":"🇫🇷","start":"15:25","end":"16:05"},{"name":"ENHANCER","genre":"Nu Metal","country":"🇫🇷","start":"16:55","end":"17:40"},{"name":"TOM MORELLO","genre":"Metal Alternatif","country":"🇺🇸","start":"18:35","end":"19:25"},{"name":"A PERFECT CIRCLE","genre":"Metal Alternatif","country":"🇺🇸","start":"20:35","end":"21:45"},{"name":"LIMP BIZKIT","genre":"Nu Metal","country":"🇺🇸","start":"23:10","end":"00:40"}],"MAINSTAGE 2":[{"name":"LOCOMUERTE","genre":"Crossover","country":"🇪🇸","start":"10:30","end":"11:00"},{"name":"INSANITY ALERT","genre":"Crossover Thrash","country":"🇦🇹","start":"11:40","end":"12:20"},{"name":"ESCUELA GRIND","genre":"Grindcore / Powerviolence","country":"🇺🇸","start":"13:10","end":"13:50"},{"name":"GATECREEPER","genre":"Death Metal","country":"🇺🇸","start":"14:40","end":"15:20"},{"name":"CRISIX","genre":"Metal / Crossover","country":"🇪🇸","start":"16:10","end":"16:50"},{"name":"CAVALERA “CHAOS A.D.”","genre":"Thrash Metal","country":"🇧🇷","start":"17:45","end":"18:30"},{"name":"ANTHRAX","genre":"Thrash Metal","country":"🇺🇸","start":"19:30","end":"20:30"},{"name":"MEGADETH","genre":"Thrash Metal","country":"🇺🇸","start":"21:50","end":"23:05"},{"name":"BEHEMOTH","genre":"Blackened Death Metal","country":"🇵🇱","start":"00:35","end":"01:50"}],"WARZONE":[{"name":"FALSE REALITY","genre":"Hardcore","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"COMBUST","genre":"Hardcore","country":"🇺🇸","start":"12:25","end":"13:05"},{"name":"KING 810","genre":"Nu Metal","country":"🇺🇸","start":"13:55","end":"14:35"},{"name":"CANCER BATS","genre":"Punk Hardcore","country":"🇨🇦","start":"15:25","end":"16:05"},{"name":"TRASH TALK","genre":"Punk Hardcore / Powerviolence","country":"🇺🇸","start":"16:55","end":"17:40"},{"name":"CRO-MAGS","genre":"Hardcore","country":"🇺🇸","start":"18:35","end":"19:25"},{"name":"KUBLAI KHAN TX","genre":"Hardcore","country":"🇺🇸","start":"20:35","end":"21:35"},{"name":"LIONHEART","genre":"Hardcore","country":"🇺🇸","start":"22:45","end":"23:45"},{"name":"HATEBREED","genre":"Hardcore","country":"🇺🇸","start":"00:55","end":"02:00"}],"VALLEY":[{"name":"COLD.CAPSULE","genre":"Post Hardcore","country":"🇫🇷","start":"10:30","end":"11:00"},{"name":"BRUIT ≤","genre":"Post Rock","country":"🇫🇷","start":"11:40","end":"12:20"},{"name":"FANGE","genre":"Sludge / Indus","country":"🇫🇷","start":"13:10","end":"13:50"},{"name":"PSYCHONAUT","genre":"Post Metal","country":"🇧🇪","start":"14:40","end":"15:20"},{"name":"PIGS PIGS PIGS PIGS PIGS PIGS PIGS","genre":"Stoner","country":"🇬🇧","start":"16:10","end":"16:50"},{"name":"GOD IS AN ASTRONAUT","genre":"Post Rock","country":"🇮🇪","start":"17:45","end":"18:30"},{"name":"THE YOUNG GODS","genre":"Electro Rock","country":"🇨🇭","start":"19:30","end":"20:30"},{"name":"AMENRA","genre":"Post Metal","country":"🇧🇪","start":"21:40","end":"22:40"},{"name":"CULT OF LUNA","genre":"Post Metal","country":"🇸🇪","start":"23:50","end":"00:50"}],"ALTAR":[{"name":"DVRK","genre":"Deathcore / Nu","country":"🇫🇷","start":"10:30","end":"11:00"},{"name":"PROFANATION","genre":"Death Metal","country":"🇪🇸","start":"11:40","end":"12:20"},{"name":"CABAL","genre":"Deathcore","country":"🇩🇰","start":"13:10","end":"13:50"},{"name":"DEFEATED SANITY","genre":"Death Metal","country":"🇩🇪","start":"14:40","end":"15:20"},{"name":"SEVERE TORTURE","genre":"Brutal Death","country":"🇳🇱","start":"16:10","end":"16:50"},{"name":"OBSCURA","genre":"Black Metal Technique","country":"🇩🇪","start":"17:45","end":"18:30"},{"name":"SEPTICFLESH","genre":"Death Metal Symphonique","country":"🇬🇷","start":"19:30","end":"20:30"},{"name":"CARCASS","genre":"Death Metal","country":"🇬🇧","start":"21:40","end":"22:40"},{"name":"DEICIDE","genre":"Death Metal","country":"🇺🇸","start":"23:50","end":"00:50"}],"TEMPLE":[{"name":"VÍGLJÓS","genre":"Black Metal","country":"🇮🇸","start":"11:05","end":"11:35"},{"name":"HULDER","genre":"Black Metal","country":"🇺🇸","start":"12:25","end":"13:05"},{"name":"NON EST DEUS","genre":"Black Metal","country":"🇫🇷","start":"13:55","end":"14:35"},{"name":"1914","genre":"Blackened Death","country":"🇺🇦","start":"15:25","end":"16:05"},{"name":"GAEREA","genre":"Post Black Metal","country":"🇵🇹","start":"16:55","end":"17:40"},{"name":"ORANSSI PAZUZU","genre":"Black Metal Psyché","country":"🇫🇮","start":"18:35","end":"19:25"},{"name":"AURA NOIR","genre":"Black Thrash","country":"🇳🇴","start":"20:35","end":"21:35"},{"name":"OLD MAN'S CHILD","genre":"Black Metal","country":"🇳🇴","start":"22:45","end":"23:45"}]},
 "Dimanche 21":{"MAINSTAGE 1":[{"name":"NOT SCIENTISTS","genre":"Punk","country":"🇪🇸","start":"11:05","end":"11:35"},{"name":"THE DWARVES","genre":"Punk","country":"🇺🇸","start":"12:15","end":"12:45"},{"name":"THE BONES","genre":"Punk Rock","country":"🇸🇪","start":"13:35","end":"14:15"},{"name":"THE ATARIS","genre":"Pop Punk","country":"🇺🇸","start":"15:10","end":"15:55"},{"name":"PENNYWISE","genre":"Punk Rock","country":"🇺🇸","start":"16:50","end":"17:40"},{"name":"RISE AGAINST","genre":"Punk Rock","country":"🇺🇸","start":"18:40","end":"19:40"},{"name":"THE HIVES","genre":"Garage Punk Rock","country":"🇸🇪","start":"20:50","end":"21:50"},{"name":"THE OFFSPRING","genre":"Punk Rock","country":"🇺🇸","start":"23:15","end":"00:30"}],"MAINSTAGE 2":[{"name":"THE FUNERAL PORTRAIT","genre":"Emocore","country":"🇬🇧","start":"10:30","end":"11:00"},{"name":"REVNOIR","genre":"Metalcore","country":"🇫🇷","start":"11:40","end":"12:10"},{"name":"RESOLVE","genre":"Metalcore","country":"🇫🇷","start":"12:50","end":"13:30"},{"name":"PRESIDENT","genre":"Metal Alternatif","country":"🇫🇷","start":"14:20","end":"15:05"},{"name":"BLACK VEIL BRIDES","genre":"Metalcore","country":"🇺🇸","start":"16:00","end":"16:45"},{"name":"THREE DAYS GRACE","genre":"Metal Alternatif","country":"🇨🇦","start":"17:45","end":"18:35"},{"name":"ARCHITECTS","genre":"Metalcore","country":"🇬🇧","start":"19:45","end":"20:45"},{"name":"BAD OMENS","genre":"Metalcore","country":"🇺🇸","start":"21:55","end":"23:10"}],"WARZONE":[{"name":"KAREN DIÓ","genre":"Punk Rock","country":"🇫🇷","start":"10:30","end":"11:00"},{"name":"MAID OF ACE","genre":"Punk","country":"🇬🇧","start":"11:40","end":"12:10"},{"name":"END IT","genre":"Hardcore","country":"🇺🇸","start":"12:50","end":"13:30"},{"name":"DRAIN","genre":"Crossover / Hardcore","country":"🇺🇸","start":"14:20","end":"15:05"},{"name":"BUZZCOCKS","genre":"Punk","country":"🇬🇧","start":"16:00","end":"16:45"},{"name":"CIRCLE JERKS","genre":"Punk Hardcore","country":"🇺🇸","start":"17:45","end":"18:35"},{"name":"AGNOSTIC FRONT","genre":"Nu Hardcore","country":"🇺🇸","start":"19:45","end":"20:45"},{"name":"THE ADICTS","genre":"Punk","country":"🇬🇧","start":"21:55","end":"23:10"}],"VALLEY":[{"name":"ALTA ROSSA","genre":"Post Metal","country":"🇮🇹","start":"11:05","end":"11:35"},{"name":"GNOME","genre":"Stoner","country":"🇷🇺","start":"12:15","end":"12:45"},{"name":"BLACK TUSK","genre":"Sludge","country":"🇺🇸","start":"13:35","end":"14:15"},{"name":"SOILENT GREEN","genre":"Sludge / Grindcore","country":"🇺🇸","start":"15:10","end":"15:55"},{"name":"EYEHATEGOD","genre":"Sludge","country":"🇺🇸","start":"16:50","end":"17:40"},{"name":"CORROSION OF CONFORMITY","genre":"Sludge","country":"🇺🇸","start":"18:40","end":"19:40"},{"name":"ACID BATH","genre":"Sludge","country":"🇺🇸","start":"20:50","end":"21:50"},{"name":"DOWN","genre":"Sludge","country":"🇺🇸","start":"23:15","end":"00:30"}],"ALTAR":[{"name":"TEMPT FATE","genre":"Death Metal","country":"🇺🇸","start":"10:30","end":"11:00"},{"name":"BLOODSTAIN","genre":"Thrash Metal","country":"🇸🇪","start":"11:40","end":"12:10"},{"name":"SUBLIME CADAVERIC DECOMPOSITION","genre":"Grindcore / Brutal","country":"🇫🇷","start":"12:50","end":"13:30"},{"name":"FULCI","genre":"Brutal Death","country":"🇮🇹","start":"14:20","end":"15:05"},{"name":"SIX FEET UNDER","genre":"Death Metal","country":"🇺🇸","start":"16:00","end":"16:45"},{"name":"SUICIDAL ANGELS","genre":"Thrash Metal","country":"🇬🇷","start":"17:45","end":"18:35"},{"name":"POSSESSED","genre":"Death Metal","country":"🇺🇸","start":"19:45","end":"20:45"},{"name":"NAPALM DEATH","genre":"Grindcore / Death Metal","country":"🇬🇧","start":"21:55","end":"23:10"}],"TEMPLE":[{"name":"SILHOUETTE","genre":"Black Metal","country":"🇫🇷","start":"11:05","end":"11:35"},{"name":"MIDNIGHT ODYSSEY","genre":"Black Ambient","country":"🇦🇺","start":"12:15","end":"12:45"},{"name":"THY LIGHT","genre":"Black Metal Dépressif","country":"🇧🇷","start":"13:35","end":"14:15"},{"name":"SCOUR","genre":"Black Metal","country":"🇺🇸","start":"15:10","end":"15:55"},{"name":"GEHENNA","genre":"Black Metal","country":"🇳🇴","start":"16:50","end":"17:40"},{"name":"WOLVES IN THE THRONE ROOM","genre":"Black Metal Atmosphérique","country":"🇺🇸","start":"18:40","end":"19:40"},{"name":"MARDUK","genre":"Black Metal","country":"🇸🇪","start":"20:50","end":"21:50"},{"name":"MAYHEM","genre":"Black Metal","country":"🇳🇴","start":"23:15","end":"00:30"}]}
 };
 
@@ -408,7 +565,7 @@ function showOrphanNotif(groups) {
 
 
 function updateCurrentTimeLine() {
-  document.querySelectorAll('.current-time-line').forEach(e => e.remove());
+  var ctLines = document.querySelectorAll('.current-time-line'); if(ctLines) ctLines.forEach(function(e){e.remove();});
   const now = new Date();
   const todayIdx = [18,19,20,21].indexOf(now.getDate());
   // Vérifier si on est en juin 2026 et que le jour affiché = aujourd'hui
@@ -506,14 +663,6 @@ function getSeenConcerts() {
   });
 }
 
-function switchTab(tab) {
-  document.getElementById('tab-planning').classList.toggle('active', tab==='planning');
-  document.getElementById('tab-collective').classList.toggle('active', tab==='collective');
-  document.getElementById('panel-planning').style.display = tab==='planning'?'block':'none';
-  document.getElementById('panel-collective').style.display = tab==='collective'?'block':'none';
-  if(tab==='planning') renderPlanning();
-  if(tab==='collective') updateCollective();
-}
 
 function renderPlanning() {
   if (!currentUser) { document.getElementById('panel-planning').innerHTML='<div class="no-selections">Sélectionne ton prénom pour voir ton planning.</div>'; return; }
@@ -603,9 +752,454 @@ function copyAllArtists() {
   navigator.clipboard.writeText(text).then(()=>showToast('📋 Copié !'));
 }
 
+
+// Familles de genres
+const GENRE_FAMILIES = [
+  { label:'Black Metal',   keys:['black','pagan','viking','atmospheric'] },
+  { label:'Death Metal',   keys:['death','brutal','grindcore','deathcore','septic'] },
+  { label:'Thrash Metal',  keys:['thrash','crossover'] },
+  { label:'Sludge / Doom', keys:['sludge','doom','post metal','post rock'] },
+  { label:'Hardcore / Punk', keys:['hardcore','punk','powerviolence','krishna'] },
+  { label:'Heavy / Power', keys:['heavy','power','hard rock','shock','pirate','folk metal'] },
+  { label:'Metalcore',     keys:['metalcore','metal alternatif','emocore'] },
+  { label:'Stoner',        keys:['stoner','psychedelic','psych'] },
+  { label:'Progressif',    keys:['progressif','djent','mathcore','baroque'] },
+  { label:'Indus / Electro', keys:['indus','electro','breakcore'] },
+];
+
+function getGenreFamily(genre) {
+  const g = genre.toLowerCase();
+  for (const fam of GENRE_FAMILIES) {
+    if (fam.keys.some(k => g.includes(k))) return fam.label;
+  }
+  return 'Divers';
+}
+
+function computeMyStyle() {
+  if (!currentUser) return;
+  const uSel = selections[currentUser.id] || {};
+  const keys = Object.keys(uSel);
+  if (!keys.length) {
+    document.getElementById('myStyleBar').style.display = 'none';
+    return;
+  }
+  // Compter les familles
+  const counts = {};
+  keys.forEach(k => {
+    const [d,s,n] = k.split('|');
+    const c = (SCHEDULE[d]?.[s]||[]).find(x=>x.name===n);
+    if (!c) return;
+    const fam = getGenreFamily(c.genre);
+    counts[fam] = (counts[fam]||0) + 1;
+  });
+  // Trier par fréquence
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  // Garder les 2-3 dominants (seulement si > 1 sélection ou si top)
+  const total = keys.length;
+  const top = sorted.slice(0,3).filter((e,i)=>i===0||e[1]>1).map(e=>e[0]);
+  const text = top.join(' · ');
+  document.getElementById('myStyleGenres').textContent = text || '—';
+  document.getElementById('myStyleBar').style.display = 'flex';
+}
+
+
+// ---- PROG TEAM ----
+const STAGE_COLORS_MAP = {
+  'MAINSTAGE 1':'#7dc44a','MAINSTAGE 2':'#5a9933',
+  'WARZONE':'#e8842a','VALLEY':'#9b7fd4',
+  'ALTAR':'#c42a2a','TEMPLE':'#5bc4c4'
+};
+const DAY_ICONS_MAP = {'Jeudi 18':'🔥','Vendredi 19':'⚔️','Samedi 20':'💀','Dimanche 21':'🤘'};
+
+// Pool de stats rotationnelles (on en tire 2-3 aléatoires par jour)
+const STAT_POOL = ['dispersion','enthusiasm','best_concert','first_fire','total_time'];
+
+function getTeamScore(key) {
+  let score = 0;
+  USERS.forEach(u => {
+    const t = selections[u.id]?.[key];
+    if (t === 'must') score += 2;
+    else if (t === 'maybe') score += 1;
+    else if (t === 'seen') score += 2;
+  });
+  return score;
+}
+
+function getTeamSelectors(key) {
+  return USERS.map(u => {
+    const t = selections[u.id]?.[key];
+    return t ? {color:u.color, icon:u.icon, type:t} : null;
+  }).filter(Boolean);
+}
+
+function buildTeamDay(dayName) {
+  const dayData = SCHEDULE[dayName];
+  // Collecter tous les concerts avec sélections + score
+  let candidates = [];
+  STAGES.forEach(stage => {
+    (dayData[stage]||[]).forEach(c => {
+      const key = `${dayName}|${stage}|${c.name}`;
+      const score = getTeamScore(key);
+      if (score > 0) {
+        candidates.push({...c, stage, key, score,
+          selectors: getTeamSelectors(key),
+          startM: timeToMinutes(c.start),
+          endM: timeToMinutes(c.end) <= timeToMinutes(c.start)
+            ? timeToMinutes(c.end) + 24*60 : timeToMinutes(c.end)
+        });
+      }
+    });
+  });
+
+  // Trier par heure de début
+  candidates.sort((a,b) => a.startM - b.startM);
+
+  // Algorithme greedy avec gestion des chevauchements
+  let schedule = [];
+  let lastEnd = -Infinity;
+
+  while (candidates.length > 0) {
+    // Trouver les candidats accessibles (début >= lastEnd - 0 ou offrant >= 20 min)
+    let accessible = candidates.filter(c => {
+      const overlap = lastEnd - c.startM;
+      return overlap <= 0 || (c.endM - lastEnd) >= 20;
+    });
+    if (!accessible.length) { candidates = []; break; }
+
+    // Grouper par plage temporelle proche (début dans les 20 min)
+    const firstStart = accessible[0].startM;
+    const window = accessible.filter(c => c.startM - firstStart <= 20);
+
+    if (window.length === 1) {
+      // Pas de conflit
+      schedule.push({type:'single', concert:window[0]});
+      lastEnd = window[0].endM;
+      candidates = candidates.filter(c => c !== window[0]);
+    } else {
+      // Potentiel conflit -- comparer les scores
+      window.sort((a,b) => b.score - a.score);
+      const best = window[0];
+      const second = window[1];
+      const scoreDiff = best.score > 0 ? (best.score - second.score) / best.score : 1;
+
+      if (scoreDiff < 0.20 && Math.abs(best.startM - second.startM) < 20) {
+        // Ambiguïté -- afficher les deux
+        schedule.push({type:'conflict', a:best, b:second});
+        // Garder le meilleur pour la suite
+        lastEnd = best.endM;
+        candidates = candidates.filter(c => c !== best && c !== second);
+      } else {
+        schedule.push({type:'single', concert:best});
+        lastEnd = best.endM;
+        candidates = candidates.filter(c => c !== best);
+      }
+    }
+  }
+
+  return schedule;
+}
+
+function renderConcertCard(c, extraClass='') {
+  const sc = STAGE_COLORS_MAP[c.stage]||'#a89f82';
+  const isSolo = c.selectors.length === 1;
+  const cls = isSolo ? 'solo' : 'priority';
+  const avHTML = c.selectors.map(s=>`
+    <div class="tc-av" style="background:${s.color}33;color:${s.color};">${s.icon}
+      <div class="tc-av-b" style="background:${s.type==='must'||s.type==='seen'?'var(--green)':'#3a3a2a'};color:${s.type==='must'||s.type==='seen'?'var(--bg)':'var(--cream2)'};">${s.type==='seen'?'🤘':'⭐'===s.type||s.type==='must'?'⭐':'?'}</div>
+    </div>`).join('');
+  return `<div class="team-card ${cls} ${extraClass}">
+    <div class="tc-top">
+      <div class="tc-time">${c.start}–${c.end}</div>
+      <div class="tc-name">${c.name}</div>
+    </div>
+    <div class="tc-scene" style="color:${sc};">${c.stage}</div>
+    <div class="tc-genre">${c.genre} · ${c.country}</div>
+    <div class="tc-avatars">${avHTML}</div>
+  </div>`;
+}
+
+function computeStats(dayName, schedule, seed) {
+  var dayData = SCHEDULE[dayName];
+  var stageCounts = {};
+  STAGES.forEach(function(s){ stageCounts[s]=0; });
+  var totalSel = 0;
+  STAGES.forEach(function(stage){
+    (dayData[stage]||[]).forEach(function(c){
+      var key = dayName+'|'+stage+'|'+c.name;
+      var hasSel = USERS.some(function(u){ return selections[u.id]&&selections[u.id][key]; });
+      if(hasSel){ stageCounts[stage]++; totalSel++; }
+    });
+  });
+
+  var STAGE_INFO = [
+    {key:'MAINSTAGE 1', add:'MAINSTAGE 2', label:'MS1+2', color:'#7dc44a'},
+    {key:'WARZONE', label:'Warzone', color:'#e8842a'},
+    {key:'VALLEY',  label:'Valley',  color:'#9b7fd4'},
+    {key:'ALTAR',   label:'Altar',   color:'#c42a2a'},
+    {key:'TEMPLE',  label:'Temple',  color:'#5bc4c4'},
+  ];
+
+  var pillsHTML = STAGE_INFO.map(function(s){
+    var count = (stageCounts[s.key]||0) + (s.add ? stageCounts[s.add]||0 : 0);
+    var pct = totalSel>0 ? Math.round(count/totalSel*100) : 0;
+    if(pct===0) return '';
+    return '<div class="stage-pill">'
+      +'<div class="pill-dot" style="background:'+s.color+';"></div>'
+      +'<span class="pill-name">'+s.label+'</span>'
+      +'<span class="pill-pct">'+pct+'%</span>'
+      +'</div>';
+  }).join('');
+
+  // Pool de 10 stats -- on tire 3 par rotation déterministe
+  var ALL = [
+    function(){ // enthusiasm
+      var must=0,maybe=0;
+      schedule.forEach(function(item){
+        var cs=item.type==='conflict'?[item.a,item.b]:[item.concert];
+        cs.forEach(function(c){ c.selectors.forEach(function(s){ if(s.type==='must'||s.type==='seen')must++;else maybe++; }); });
+      });
+      var tot=must+maybe||1;
+      return ['🎯','Enthousiasme','⭐ '+Math.round(must/tot*100)+'% · ? '+Math.round(maybe/tot*100)+'%'];
+    },
+    function(){ // best concert
+      var best=null;
+      schedule.forEach(function(item){ var c=item.type==='single'?item.concert:(item.a.score>=item.b.score?item.a:item.b); if(!best||c.score>best.score)best=c; });
+      return best ? ['🏆','Le + attendu',best.name.split(' ').slice(0,2).join(' ')] : null;
+    },
+    function(){ // premier feu
+      for(var i=0;i<schedule.length;i++){ if(schedule[i].type==='single'&&schedule[i].concert.selectors.some(function(s){return s.type==='must'||s.type==='seen';})){ return ['🔥','Premier feu',schedule[i].concert.start]; } }
+      return null;
+    },
+    function(){ // temps total
+      var mins=0;
+      schedule.forEach(function(item){ if(item.type==='single') mins+=item.concert.endM-item.concert.startM; });
+      var hh=Math.floor(mins/60),mm=mins%60;
+      return ['⏱️','Musique totale',hh+'h'+(mm>0?mm+'min':'')];
+    },
+    function(){ // dispersion
+      var st=new Set();
+      schedule.forEach(function(item){ if(item.type==='single')st.add(item.concert.stage);else{st.add(item.a.stage);st.add(item.b.stage);} });
+      return ['🗺️','Dispersion team',st.size+' scène'+(st.size>1?'s':'')];
+    },
+    function(){ // nb conflits
+      var conflicts = schedule.filter(function(i){return i.type==='conflict';}).length;
+      return ['⚔️','Choix difficiles', conflicts > 0 ? conflicts+' conflit'+(conflicts>1?'s':'') : 'Aucun conflit 🙌'];
+    },
+    function(){ // scène dominante
+      var best='', bestCount=0;
+      var labels={'MAINSTAGE 1':'MS1','MAINSTAGE 2':'MS2','WARZONE':'Warzone','VALLEY':'Valley','ALTAR':'Altar','TEMPLE':'Temple'};
+      Object.keys(stageCounts).forEach(function(s){ if(stageCounts[s]>bestCount){bestCount=stageCounts[s];best=s;} });
+      return ['🎸','Scène favorite', best ? labels[best]+' ('+bestCount+')' : '—'];
+    },
+    function(){ // dernier concert
+      var last=null;
+      schedule.forEach(function(item){ if(item.type==='single') last=item.concert; });
+      return last ? ['🌙','Fin de soirée',last.end] : null;
+    },
+    function(){ // solo vs collectif
+      var solo=0,multi=0;
+      schedule.forEach(function(item){ if(item.type==='single'){ if(item.concert.selectors.length===1)solo++;else multi++; } });
+      return ['👥','Solo vs collectif', multi+' collectifs · '+solo+' solo'+(solo>0?' 🐺':'')];
+    },
+    function(){ // score total
+      var total=0;
+      schedule.forEach(function(item){ if(item.type==='single')total+=item.concert.score; });
+      return ['💥','Score total team', total+' pts'];
+    }
+  ];
+
+  // Sélectionner 3 stats sans doublon, rotation par seed
+  var picked=[], used=new Set();
+  for(var i=0;i<ALL.length&&picked.length<3;i++){
+    var idx=(seed+i)%ALL.length;
+    if(!used.has(idx)){ used.add(idx); var r=ALL[idx](); if(r) picked.push(r); }
+  }
+
+  var hlHTML = picked.map(function(p){
+    return '<div class="stat-highlight"><span class="stat-hl-icon">'+p[0]+'</span><span class="stat-hl-text">'+p[1]+'</span><span class="stat-hl-val">'+p[2]+'</span></div>';
+  }).join('');
+
+  var retained=schedule.filter(function(i){return i.type==='single';}).length;
+  var totalDay=Object.values(dayData).reduce(function(s,a){return s+a.length;},0);
+
+  return '<div class="stats-section">'
+    +'<div class="stats-title">📊 STATS · '+retained+' concerts / '+totalDay+' au total</div>'
+    +'<div class="stage-pills">'+pillsHTML+'</div>'
+    +hlHTML+'</div>';
+}
+
+function renderTeamView() {
+  var tv = document.getElementById('teamView');
+  if (!tv) return;
+  var dayName = DAYS[currentDay];
+  var schedule = buildTeamDay(dayName);
+  var dayIcon = {'Jeudi 18':'🔥','Vendredi 19':'⚔️','Samedi 20':'💀','Dimanche 21':'🤘'}[dayName]||'';
+
+  // Barre nav identique à la grille principale
+  var navHTML = '<nav class="bottom-nav" style="flex-shrink:0;">'
+    + DAYS.map(function(d,i){
+        var icon = ['🔥','⚔️','💀','🤘'][i];
+        var short = ['JEU 18','VEN 19','SAM 20','DIM 21'][i];
+        return '<button class="nav-btn'+(i===currentDay?' active':'')+'" onclick="setTeamDay('+i+')">'
+          +'<span class="nav-icon">'+icon+'</span>'+short+'</button>';
+      }).join('')
+    + '<button class="nav-btn" onclick="openDrawer()"><div class="nav-h-icon" style="font-family:Creepster,cursive;font-size:18px;color:#7dc44a;">H</div>HELLTEAM</button>'
+    + '</nav>';
+
+  if (!schedule.length) {
+    tv.innerHTML = '<div class="header" style="flex-shrink:0;"><div class="header-logo" style="font-family:Creepster,cursive;font-size:18px;color:#7dc44a;">PERFECT RUNNING ORDER</div></div>'
+      + '<div class="team-scroll"><div class="team-inner"><div class="no-team-data">Aucune sélection pour ce jour.</div></div></div>'
+      + navHTML;
+    return;
+  }
+
+  // Header
+    // Header identique à la grille -- HellFest Tales from the Pit
+  var av = currentUser ? currentUser.icon : '?';
+  var avColor = currentUser ? currentUser.color : '#a89f82';
+  var uname = currentUser ? currentUser.name : '—';
+  var headerHTML = '<div class="header">'
+    + '<div class="header-logo">HellFest <span>Tales from the Pit</span></div>'
+    + '<div class="header-user" onclick="openUserModal()">'
+    + '<div class="user-avatar" style="border-color:'+avColor+';color:'+avColor+';">'+av+'</div>'
+    + '<span class="user-name" style="color:'+avColor+';">'+uname+'</span>'
+    + '</div></div>';
+
+  // Concerts
+  var concertsHTML = '';
+  var prevEnd = -1;
+  schedule.forEach(function(item) {
+    var startM = item.type==='single' ? item.concert.startM : Math.min(item.a.startM, item.b.startM);
+    if (prevEnd > 0 && startM - prevEnd >= 20) {
+      var gap = startM - prevEnd;
+      var gh = Math.floor(gap/60), gm = gap%60;
+      var gs = gh>0 ? gh+'h'+(gm>0?gm+'min':'') : gm+'min';
+      concertsHTML += '<div class="team-empty"><div class="team-empty-time">'+formatTimeLabel(prevEnd)+'–'+formatTimeLabel(startM)+'</div><div class="team-empty-label">🍺 🍔 &nbsp;'+gs+' de libre</div></div>';
+    }
+    if (item.type==='single') {
+      concertsHTML += renderTeamCard(item.concert);
+      prevEnd = item.concert.endM;
+    } else {
+      concertsHTML += '<div class="team-card conflict-wrap">'
+        + '<div class="tc-conflict-label">⚠️ CHOIX À FAIRE · scores proches</div>'
+        + renderTeamCard(item.a, true)
+        + '<div class="tc-conflict-sep"></div>'
+        + '<div style="opacity:0.75;">'+renderTeamCard(item.b, true)+'</div>'
+        + '</div>';
+      prevEnd = Math.max(item.a.endM, item.b.endM);
+    }
+  });
+
+  var statsHTML = computeStats(dayName, schedule, currentDay*7+42);
+
+  tv.innerHTML = headerHTML
+    + '<div class="team-scroll"><div class="team-inner">'
+    + '<div class="team-view-title">'+dayIcon+' '+dayName.toUpperCase()
+    + '<span class="team-day-sub">'+schedule.filter(function(i){return i.type==='single';}).length+' concerts retenus</span></div>'
+    + concertsHTML + statsHTML
+    + '</div></div>'
+    + navHTML;
+}
+
+function renderTeamCard(c, inner) {
+  var sc = {'MAINSTAGE 1':'#7dc44a','MAINSTAGE 2':'#5a9933','WARZONE':'#e8842a','VALLEY':'#9b7fd4','ALTAR':'#c42a2a','TEMPLE':'#5bc4c4'}[c.stage]||'#a89f82';
+  var isSolo = c.selectors.length === 1;
+  var avHTML = c.selectors.map(function(s){
+    var badge = s.type==='seen'?'🤘':s.type==='must'?'⭐':'?';
+    var bgBadge = (s.type==='must'||s.type==='seen') ? 'background:#7dc44a;color:#0a0a08;' : 'background:#3a3a2a;color:#a89f82;';
+    return '<div class="tc-av" style="background:'+s.color+'33;color:'+s.color+';">'+s.icon
+      +'<div class="tc-av-b" style="'+bgBadge+'">'+badge+'</div></div>';
+  }).join('');
+  var unicorn = c.selectors.length >= 4
+    ? '<span style="font-size:18px;">🦄</span><span style="font-size:10px;color:#a89f82;font-family:Special Elite,serif;align-self:center;">INCONTOURNABLE ×'+c.selectors.length+'</span>'
+    : avHTML;
+  var cls = inner ? '' : ('team-card' + (isSolo?' solo':''));
+  return '<div class="'+cls+'">'
+    + '<div class="tc-top"><div class="tc-time">'+c.start+'–'+c.end+'</div><div class="tc-name">'+c.name+'</div></div>'
+    + '<div class="tc-scene" style="color:'+sc+';">'+c.stage+'</div>'
+    + '<div class="tc-genre">'+c.genre+' · '+c.country+'</div>'
+    + '<div class="tc-avatars">'+unicorn+'</div>'
+    + '</div>';
+}
+
+function setTeamDay(idx) {
+  if (idx === currentDay) return;
+  // Animation flamme réutilisant fireTransition
+  var overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:500;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 110%,#ff4500 0%,#ff6a00 15%,#dd2200 35%,#660000 60%,transparent 100%);transition:opacity 0.18s ease-in;';
+  document.body.appendChild(overlay);
+  requestAnimationFrame(function(){
+    overlay.style.opacity = '0.88';
+    setTimeout(function(){
+      currentDay = idx;
+      document.querySelectorAll('.nav-btn').forEach(function(b,i){ b.classList.toggle('active', i===idx); });
+      renderTeamView();
+      overlay.style.transition = 'opacity 0.3s ease-out';
+      overlay.style.opacity = '0';
+      setTimeout(function(){ overlay.remove(); }, 350);
+    }, 200);
+  });
+}
+
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('show');
+  computeMyStyle();
+  if (!teamMode) switchTab('planning');
+  else updateCollective();
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('show');
+  if (teamMode) openTeamView();
+}
+
+function switchTab(tab) {
+  document.getElementById('tab-planning').classList.toggle('active', tab==='planning');
+  document.getElementById('tab-collective').classList.toggle('active', tab==='collective');
+  document.getElementById('panel-planning').style.display = tab==='planning'?'block':'none';
+  document.getElementById('panel-collective').style.display = tab==='collective'?'block':'none';
+  if (tab === 'planning') {
+    // Retour à la grille
+    renderPlanning();
+    teamMode = false;
+    closeTeamView();   // ferme PERFECT RUNNING ORDER si ouverte
+  }
+  if (tab === 'collective') {
+    updateCollective();
+    teamMode = true;
+    // La vue PERFECT RUNNING ORDER s'ouvrira à la fermeture du tiroir (closeDrawer)
+  }
+}
+
+
+
+
+
+
+let teamMode = false;
+
+function openTeamView() {
+  document.getElementById('teamView').classList.add('active');
+  try { renderTeamView(); } catch(e) {
+    document.getElementById('teamView').innerHTML =
+      '<div style="padding:20px;color:var(--orange);">Erreur: '+e.message+'</div>';
+  }
+}
+
+function closeTeamView() {
+  document.getElementById('teamView').classList.remove('active');
+}
+
+function backToGrid() {
+  closeTeamView();
+}
+
 function init() {
   loadSelections(); loadUser();
   startFirebaseSync();
+
   setTimeout(checkOrphanSelections, 1000);
   try { if(localStorage.getItem("hf2026_mode")==="light"){ document.body.classList.add("light-mode"); document.getElementById("modeLabel").textContent="☀️ Mode clair"; document.getElementById("modeSwitch").classList.add("on"); } } catch(e){}
   buildUserModal();
@@ -637,7 +1231,7 @@ function updateUserDisplay() {
 }
 function openUserModal() { document.getElementById('userModal').classList.add('show'); }
 
-function setDay(idx) { fireTransition(idx); }
+function setDay(idx) { fireTransition(idx);  }
 
 // Calcule la bordure multi-couleurs selon les sélecteurs
 function getBorderStyle(selectors) {
@@ -685,7 +1279,7 @@ function renderDay() {
       }).filter(Boolean);
 
       const borderStyle = getBorderStyle(selectors);
-      const isUnicorn = selectors.length >= 5;
+      const isUnicorn = selectors.length >= 4;
 
       // Avatars (max 4 affichés + licorne si 5+)
       let avatarsHTML = '';
@@ -704,7 +1298,7 @@ function renderDay() {
       }
 
       blocksHTML += `<div class="concert-block" style="top:${top}px;height:${height}px;${borderStyle}"
-        onclick="openContext(event,'${c.name.replace(/'/g,"\\'")}','${dayName}','${stageName}')">
+        onclick="openContext(event,'${c.name.replace(/'/g,String.fromCharCode(39)).replace(/"/g,'&quot;')}','${dayName}','${stageName}')">
         <div class="concert-country">${c.country}</div>
         <div class="concert-name">${c.name}</div>
         <div class="concert-genre">${c.genre}</div>
@@ -752,7 +1346,7 @@ function selectConcert(type) {
   if (!selections[currentUser.id]) selections[currentUser.id]={};
   if (type===null) delete selections[currentUser.id][key];
   else selections[currentUser.id][key]=type;
-  saveSelections(); closeContext(); renderDay(); updateCollective();
+  saveSelections(); closeContext(); renderDay(); updateCollective(); computeMyStyle(); 
   showToast(type==='must'?'⭐ À ne pas rater !':type==='maybe'?'? Pourquoi pas !':'✖ Retiré');
 }
 
@@ -762,15 +1356,7 @@ function showToast(msg) {
   setTimeout(()=>t.classList.remove('show'),1800);
 }
 
-function openDrawer() {
-  document.getElementById('drawer').classList.add('open');
-  document.getElementById('drawerOverlay').classList.add('show');
-  switchTab('planning');
-}
-function closeDrawer() {
-  document.getElementById('drawer').classList.remove('open');
-  document.getElementById('drawerOverlay').classList.remove('show');
-}
+
 
 function applySearchFilter() { /* appel legacy - ne fait rien */ }
 
