@@ -356,6 +356,9 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
   pointer-events: none;
 }
 
+
+#teamTimeLine { position: absolute; z-index: 10; pointer-events: none; }
+
 .toast { position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%); background: var(--bg2); border: 1px solid var(--green3); border-radius: 20px; padding: 7px 16px; font-size: 12px; letter-spacing: 1px; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s; white-space: nowrap; }
 .toast.show { opacity: 1; }
 </style>
@@ -386,7 +389,7 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 <body>
 
 <div class="header">
-  <div class="header-logo">HellFest <span>Tales from the Pit</span></div>
+  <div class="header-logo">HellFest 2026 <span>Tales from the Pit</span></div>
   <div class="header-user" onclick="openUserModal()">
     <div class="user-avatar" id="currentAvatar"></div>
     <span class="user-name" id="currentName">—</span>
@@ -634,7 +637,7 @@ function fireTransition(nextDay) {
 
 function setDayInternal(idx) {
   currentDay=idx;
-  document.querySelectorAll('.nav-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  updateNavButtons();
   renderDay();
   updateCurrentTimeLine();
   document.getElementById('gridWrapper').scrollTo(0,0);
@@ -1068,7 +1071,7 @@ function renderTeamView() {
   var avColor = currentUser ? currentUser.color : '#a89f82';
   var uname = currentUser ? currentUser.name : '—';
   var headerHTML = '<div class="header">'
-    + '<div class="header-logo">HellFest <span>Tales from the Pit</span></div>'
+    + '<div class="header-logo">HellFest 2026 <span>Tales from the Pit</span></div>'
     + '<div class="header-user" onclick="openUserModal()">'
     + '<div class="user-avatar" style="border-color:'+avColor+';color:'+avColor+';">'+av+'</div>'
     + '<span class="user-name" style="color:'+avColor+';">'+uname+'</span>'
@@ -1102,12 +1105,13 @@ function renderTeamView() {
   var statsHTML = computeStats(dayName, schedule, Math.floor(Date.now()/1000) + currentDay);
 
   tv.innerHTML = headerHTML
-    + '<div class="team-scroll"><div class="team-inner">'
+    + '<div class="team-scroll" id="teamScroll"><div class="team-inner" id="teamInner" style="position:relative;">'
     + '<div class="team-view-title">'+dayIcon+' '+dayName.toUpperCase()
     + '<span class="team-day-sub">'+schedule.filter(function(i){return i.type==='single';}).length+' concerts retenus</span></div>'
     + concertsHTML + statsHTML
     + '</div></div>'
     + navHTML;
+  updateTeamTimeLine();
 }
 
 function renderTeamCard(c, inner) {
@@ -1141,8 +1145,9 @@ function setTeamDay(idx) {
     overlay.style.opacity = '0.88';
     setTimeout(function(){
       currentDay = idx;
-      document.querySelectorAll('.nav-btn').forEach(function(b,i){ b.classList.toggle('active', i===idx); });
+      updateNavButtons();
       renderTeamView();
+      updateTeamTimeLine();
       overlay.style.transition = 'opacity 0.3s ease-out';
       overlay.style.opacity = '0';
       setTimeout(function(){ overlay.remove(); }, 350);
@@ -1202,7 +1207,17 @@ function closeTeamView() {
 }
 
 function backToGrid() {
+  teamMode = false;
   closeTeamView();
+  // Forcer reset complet : retirer active de tous, puis remettre le bon
+  [0,1,2,3].forEach(function(i) {
+    var btn = document.getElementById('btn'+i);
+    if (btn) {
+      btn.classList.remove('active');
+      if (i === currentDay) btn.classList.add('active');
+    }
+  });
+  renderDay();
 }
 
 
@@ -1231,6 +1246,64 @@ function decodeSelections(sel) {
   return decoded;
 }
 
+
+function updateNavButtons() {
+  [0,1,2,3].forEach(function(i) {
+    var btn = document.getElementById('btn'+i);
+    if (btn) btn.classList.toggle('active', i === currentDay);
+  });
+}
+
+
+function updateTeamTimeLine() {
+  // Supprimer l'ancienne ligne
+  var oldLine = document.getElementById('teamTimeLine');
+  if (oldLine) oldLine.remove();
+
+  // Vérifier si on est le bon jour en juin 2026
+  var now = new Date();
+  var isJune2026 = now.getFullYear() === 2026 && now.getMonth() === 5;
+  var todayIdx = [18,19,20,21].indexOf(now.getDate());
+  if (!isJune2026 || todayIdx === -1 || todayIdx !== currentDay) return;
+
+  // Récupérer les concerts du jour pour calculer les bornes
+  var dayName = DAYS[currentDay];
+  var dayData = SCHEDULE[dayName];
+  var allConcerts = [];
+  Object.values(dayData).forEach(function(stage) { stage.forEach(function(c){ allConcerts.push(c); }); });
+  if (!allConcerts.length) return;
+
+  var times = allConcerts.map(function(c){ return timeToMinutes(c.start); });
+  var minT = Math.min.apply(null, times);
+  var nowM = now.getHours() < 6 ? (now.getHours()+24)*60+now.getMinutes() : now.getHours()*60+now.getMinutes();
+
+  // Trouver les bornes réelles (premier début, dernière fin)
+  var endTimes = allConcerts.map(function(c){
+    var e = timeToMinutes(c.end);
+    var s = timeToMinutes(c.start);
+    return e > s ? e : e + 24*60;
+  });
+  var maxT = Math.max.apply(null, endTimes);
+
+  if (nowM < minT || nowM > maxT) return;
+
+  // Calculer la position relative dans le conteneur
+  // Chaque heure = 56px (SLOT_H), à partir de minT
+  var SLOT_H = 56;
+  var topPx = (nowM - minT) / 60 * SLOT_H + 32; // +32 pour le titre du jour
+
+  var inner = document.getElementById('teamInner');
+  if (!inner) return;
+
+  var line = document.createElement('div');
+  line.id = 'teamTimeLine';
+  line.style.cssText = 'position:absolute;left:0;right:0;top:'+topPx+'px;height:2px;background:#ff2222;z-index:10;pointer-events:none;';
+  var dot = document.createElement('div');
+  dot.style.cssText = 'position:absolute;left:-4px;top:-4px;width:10px;height:10px;background:#ff2222;border-radius:50%;';
+  line.appendChild(dot);
+  inner.appendChild(line);
+}
+
 function init() {
   loadSelections(); loadUser();
   startFirebaseSync();
@@ -1241,6 +1314,7 @@ function init() {
   buildUserModal();
   if (!currentUser) openUserModal(); else updateUserDisplay();
   renderDay();
+  updateNavButtons();
 }
 
 function buildUserModal() {
