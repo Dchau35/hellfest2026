@@ -359,6 +359,17 @@ body { background: var(--bg); color: var(--cream); font-family: 'Oswald', sans-s
 
 #teamTimeLine { position: absolute; z-index: 10; pointer-events: none; }
 
+
+/* HellFest 2027 */
+.hf2027-section { margin-top:14px; padding-top:10px; border-top:1px solid var(--border2); }
+.hf2027-locked { display:flex; align-items:center; gap:8px; padding:8px 10px; background:var(--bg3); border-radius:6px; border:1px solid var(--border2); opacity:0.45; cursor:not-allowed; }
+.hf2027-locked-text { font-family:'Creepster',cursive; font-size:15px; color:var(--red); letter-spacing:1px; }
+.hf2027-locked-sub { font-family:'Special Elite',serif; font-size:8px; color:var(--cream2); margin-top:2px; }
+.hf2027-link { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; background:var(--bg3); border-radius:6px; border:1px solid #3a1a1a; cursor:pointer; text-decoration:none; }
+.hf2027-title { font-family:'Creepster',cursive; font-size:16px; color:var(--red); letter-spacing:1px; }
+.hf2027-arrow { color:var(--red); font-size:18px; font-weight:700; animation:hf27blink 0.9s ease-in-out infinite; }
+@keyframes hf27blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+
 .toast { position: fixed; bottom: 72px; left: 50%; transform: translateX(-50%); background: var(--bg2); border: 1px solid var(--green3); border-radius: 20px; padding: 7px 16px; font-size: 12px; letter-spacing: 1px; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s; white-space: nowrap; }
 .toast.show { opacity: 1; }
 </style>
@@ -666,6 +677,11 @@ function isExportUnlocked() {
   return new Date() >= unlock;
 }
 
+function is2027Unlocked() {
+  const unlock = new Date('2026-06-22T00:01:00');
+  return new Date() >= unlock;
+}
+
 function getSeenConcerts() {
   const uSel = selections[currentUser?.id] || {};
   return Object.entries(uSel).filter(([k,v])=>v==='seen').map(([k])=>{
@@ -745,6 +761,25 @@ function renderPlanning() {
     }
   }
   html+='</div>';
+
+  // Section XX HellFest 2027
+  const unlocked2027 = is2027Unlocked();
+  html += '<div class="hf2027-section">';
+  if (!unlocked2027) {
+    html += '<div class="hf2027-locked">'
+      + '<span style="font-size:16px;">🔒</span>'
+      + '<div>'
+      + '<div class="hf2027-locked-text">XX HellFest 2027</div>'
+      + '<div class="hf2027-locked-sub">Disponible le 22 juin à 00:01</div>'
+      + '</div></div>';
+  } else {
+    html += '<a class="hf2027-link" onclick="openAffiche2027()" href="#">'
+      + '<span class="hf2027-title">XX HellFest 2027</span>'
+      + '<span class="hf2027-arrow">→</span>'
+      + '</a>';
+  }
+  html += '</div>';
+
   document.getElementById('panel-planning').innerHTML=html;
   if(unlocked) renderExport();
 }
@@ -1302,6 +1337,13 @@ function updateTeamTimeLine() {
   dot.style.cssText = 'position:absolute;left:-4px;top:-4px;width:10px;height:10px;background:#ff2222;border-radius:50%;';
   line.appendChild(dot);
   inner.appendChild(line);
+}
+
+
+function openAffiche2027() {
+  var w = window.open('', '_blank');
+  w.document.write('<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HellFest 2027</title><style>*{margin:0;padding:0;box-sizing:border-box;}body{background:#0a0a08;display:flex;flex-direction:column;align-items:center;min-height:100vh;}#back{position:fixed;top:12px;left:12px;z-index:10;background:#1a1a12;border:1px solid #c42a2a;color:#c42a2a;font-family:Oswald,sans-serif;font-size:13px;letter-spacing:1px;padding:8px 14px;border-radius:6px;cursor:pointer;text-decoration:none;}img{width:100%;max-width:680px;height:auto;display:block;}</style></head><body><a id="back" onclick="window.close();return false;" href="#">← RETOUR</a><img src="Affiche_HellFest_2027.png" alt="HellFest 2027 - Affiche officielle"></body></html>');
+  w.document.close();
 }
 
 function init() {
